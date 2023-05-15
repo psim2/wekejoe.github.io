@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>גמטריא</title>
+        <link href='https://fonts.googleapis.com/css?family=Gruppo|Roboto+Condensed|Roboto+Slab|Pacifico' rel='stylesheet' type='text/css' />
+
+    <style>
+        body{
+                background-color:rgb(252, 3, 165);
+                text-align: right;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+        
+    </head>
+    <body>
+    <h1>גמטריאות</h1>
+    <form id="calculator-form">
+        <label>
+            <input type="text" name="abc" id="input">
+            </label>
+            <button id="button">חשבן</button>
+        <div id="calculator-results"></div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+var w = 1;
+var j ="ים";
+var tr = function(wered,num){
+    for(var i = 0;i < wered.length;i ++){
+        if(wered[i] === "א"){
+            num += 1;
+        }
+        if(wered[i] === "ב"){
+            num += 2;
+        }
+        if(wered[i] === "ג"){
+            num += 3;
+        }
+        if(wered[i] === "ד"){
+            num += 4;
+        }
+        if(wered[i] === "ה"){
+            num += 5;
+        }
+        if(wered[i] === "ו"){
+            num += 6;
+        }
+        if(wered[i] === "ז"){
+            num += 7;
+        }
+        if(wered[i] === "ח"){
+            num += 8;
+        }
+        if(wered[i] === "ט"){
+            num += 9;
+        }
+        if(wered[i] === "י"){
+            num += 10;
+        }
+        if(wered[i] === "כ"||wered[i] === "ך"){
+            num += 20;
+        }
+        if(wered[i] === "ל"){
+            num += 30;
+        }
+        if(wered[i] === "מ"||wered[i] === "ם"){
+            num += 40;
+        }
+        if(wered[i] === "נ"||wered[i] === "ן"){
+            num += 50;
+        }
+        if(wered[i] === "ס"){
+            num += 60;
+        }
+        if(wered[i] === "ע"){
+            num += 70;
+        }
+        if(wered[i] === "פ"||wered[i] === "ף"){
+            num += 80;
+        }
+        if(wered[i] === "ק"){
+            num += 100;
+        }
+        if(wered[i] === "ר"){
+            num += 200;
+        }
+        if(wered[i] === "ש"){
+            num += 300;
+        }
+        if(wered[i] === "ת"){
+            num += 400;
+        }
+        if(wered[i] === " "){
+           w += 1; 
+        }
+        if(i === wered.length-1){
+            return num;
+        }
+    
+    }
+};
+var pr = function(p,t){
+    for(var i = 0;i < p;i){}
+    if(p >= 400){
+        p -= 400;
+        t += "ת"; 
+    }
+    if(p >= 300){
+        p -= 300;
+        t += "ש"; 
+    }
+};
+if(w === 1){
+    j = "ה";
+}
+else{
+    j ="ים";
+}
+
+$("#calculator-form").on("submit",function(e){
+    e.preventDefault();
+    w = 1;
+    var age = $(this).find("[name=abc]").val(); // scoped;
+    $("#calculator-results").html("הגמטריא של המיל"+ j +": " + age +   "<br> זה: " +  tr(age,0) +"<br>" + w +" :מילים"     + "<br>" + (age.length-(w-1))  +" :אותיות"
+);
+});    
+</script>
+    </body>
+</html>
